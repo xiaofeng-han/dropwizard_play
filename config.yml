@@ -1,0 +1,6 @@
+logging:
+  level: INFO
+  loggers:
+    io.xiaofeng.play: DEBUG
+template: Hello, %s!
+defaultName: Player
