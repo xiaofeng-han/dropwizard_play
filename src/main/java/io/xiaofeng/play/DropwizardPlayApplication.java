@@ -3,6 +3,8 @@ package io.xiaofeng.play;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.xiaofeng.play.health.PlayHealthCheck;
+import io.xiaofeng.play.resources.HelloResource;
 
 public class DropwizardPlayApplication extends Application<DropwizardPlayConfiguration> {
 
@@ -23,7 +25,13 @@ public class DropwizardPlayApplication extends Application<DropwizardPlayConfigu
     @Override
     public void run(final DropwizardPlayConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        final HelloResource resource = new HelloResource(
+                configuration.getTemplate(),
+                configuration.getDefaultName()
+        );
+        final PlayHealthCheck healthCheck = new PlayHealthCheck(configuration.getTemplate());
+        environment.healthChecks().register("Play health", healthCheck);
+        environment.jersey().register(resource);
     }
 
 }

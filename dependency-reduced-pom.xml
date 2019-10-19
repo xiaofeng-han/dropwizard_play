@@ -44,6 +44,7 @@
         <configuration>
           <archive>
             <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               <addClasspath>true</addClasspath>
               <mainClass>${mainClass}</mainClass>
             </manifest>
@@ -120,9 +121,9 @@
   </dependencyManagement>
   <properties>
     <dropwizard.version>2.0.0-rc10</dropwizard.version>
-    <personal>true</personal>
     <mainClass>io.xiaofeng.play.DropwizardPlayApplication</mainClass>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <personal>true</personal>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 </project>
